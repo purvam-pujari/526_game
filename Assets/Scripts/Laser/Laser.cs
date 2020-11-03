@@ -24,7 +24,7 @@ public class Laser : MonoBehaviour
 		if(other.gameObject.tag == "Pick Up") {
 			Destroy(other.gameObject);
 			Destroy(this.gameObject);
-		} else if(other.gameObject.tag == "Red" || other.gameObject.tag == "Green"){
+		} else if(other.gameObject.tag == "Red" || other.gameObject.tag == "Green" || other.gameObject.tag == "Blue"){
 			Destroy(this.gameObject);
 		}
 	}

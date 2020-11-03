@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         gmScript = gm.GetComponent<GameMaster>();
 
-        Color baseColorRed = new Color( 0.7f,0f,0f);
+        Color baseColorRed = new Color( 1f,1f,1f);
         Renderer rend = GetComponent<Renderer>();
         Material mat = rend.material;
         mat.SetColor("_Color", baseColorRed);
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision hit)
     {
-        Color baseColorBlue = new Color( 0f,0f,0.7f);
+        Color baseColorBlue = new Color( 0f,0.6f,1f);
         Color baseColorRed = new Color( 0.7f,0f,0f);
         Color baseColorGreen = new Color( 0.0f,0.7f,0f);
         Renderer rend = GetComponent<Renderer>();

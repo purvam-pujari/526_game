@@ -375,15 +375,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.61181194, g: 0.2062567, b: 0.9716981, a: 1}
+  m_Color: {r: 0.20784311, g: 0.6946881, b: 0.972549, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 2beaa74041d0d844b952874116484050, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AstroColors
+  m_Text: Space  Survivor
 --- !u!222 &803438242
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2beaa74041d0d844b952874116484050, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
