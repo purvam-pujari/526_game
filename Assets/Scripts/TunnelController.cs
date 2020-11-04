@@ -6,10 +6,13 @@ public class TunnelController : MonoBehaviour {
     public float damping = 30;
     float desiredRot;
     int curVertex = 0;
-    private float rotationTime;
 
     public GameObject gm;
     private GameMaster gmScript;
+    private float rotationTime;
+    private Vector2 fingerDown;
+    private Vector2 fingerUp;
+    Vector2 currentSwipe;
 
     private void Start()
     {
@@ -38,6 +41,32 @@ public class TunnelController : MonoBehaviour {
                 desiredRot = curVertex * 60 + 60f;
                 curVertex++;
                 rotationTime = 0;
+            }
+
+            // Mouse/ Touch swipe
+            if(Input.GetMouseButtonDown(0)){
+                fingerDown = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            }
+
+            if(Input.GetMouseButtonUp(0)){
+                fingerUp = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                currentSwipe = new Vector2(fingerUp.x - fingerDown.x, fingerUp.y - fingerDown.y);
+                //swipe left
+                if(currentSwipe.x < 0 && (currentSwipe.y > -0.7f || currentSwipe.y < 0.7f))
+                {
+                    // Debug.Log("left swipe");
+                    desiredRot = curVertex * 60 - 60f;
+                    curVertex--;
+                    rotationTime = 0;
+                }
+                //swipe right
+                if(currentSwipe.x > 0 && (currentSwipe.y > -0.7f || currentSwipe.y < 0.7f))
+                {
+                    // Debug.Log("right swipe");
+                    desiredRot = curVertex * 60 + 60f;
+                    curVertex++;
+                    rotationTime = 0;
+                }
             }
             curVertex = curVertex % 6;
             Quaternion desiredRotQ = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, desiredRot);

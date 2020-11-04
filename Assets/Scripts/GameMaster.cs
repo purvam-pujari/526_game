@@ -86,6 +86,26 @@ public class GameMaster : MonoBehaviour {
     public void SetGameOver( bool over)
     {
         gameOver = over;
+        gameOver = over;
+        string s = PlayerPrefs.GetString("HighScores");
+		List<int> TopScores = new List<int>();
+		if(s.Length == 0){
+			TopScores.Add(score);
+			PlayerPrefs.SetString("HighScores",String.Join(",", TopScores.ToArray()));
+		} else {
+			String[] listOfInts = s.Split(',');
+			foreach(var scre in listOfInts) {
+				TopScores.Add(Convert.ToInt32(scre));
+			}
+			TopScores.Add(score);
+			TopScores.Sort();
+			TopScores.Reverse();
+			if(TopScores.Count > 5) {
+				TopScores.RemoveAt(5);
+			}
+		}
+		// Debug.Log("capacity: " + TopScores.Count);
+		PlayerPrefs.SetString("HighScores",String.Join(",", TopScores.ToArray()));
     }
 
     private void OnGameOver()
