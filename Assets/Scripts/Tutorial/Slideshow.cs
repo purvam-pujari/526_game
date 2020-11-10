@@ -7,32 +7,31 @@ public class Slideshow : MonoBehaviour
 {
     public Sprite[] slides = new Sprite[8];
     // public Sprite temp;
-    public RectTransform rectTransform;
     public float changeTime = 10.0f;
     private int currentSlide = 0;
     private float timeSinceLast = 1.0f;
-    private Image image;
+    public Image image;
+    public Text position;
     // Start is called before the first frame update
-    void Start()
-    {
-        image= GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Image>();
-        Debug.Log("first", slides[0]);
+    void Start() {
+        image = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Image>();
         image.sprite = slides[currentSlide];
-        currentSlide++;
-        // image.sprite = temp;
+        position.text = (currentSlide+1) + "/" + slides.Length;
     }
 
     public void NextSlide() {
         currentSlide = (currentSlide + 1) % 8;
         image.sprite = slides[currentSlide];
+        position.text = (currentSlide+1) + "/" + slides.Length;
     }
 
-    public void PrevSlde() {
+    public void PrevSlide() {
         if(currentSlide == 0) {
             currentSlide = slides.Length - 1;
-        } else{
+        } else {
             currentSlide -= 1;
         }
         image.sprite = slides[currentSlide];
+        position.text = (currentSlide+1) + "/" + slides.Length;
     }
 }

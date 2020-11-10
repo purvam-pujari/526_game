@@ -17,6 +17,7 @@ TagManager:
   - RedLoop
   - GreenLoop
   - BlueLoop
+  - Tutorial
   layers:
   - Default
   - TransparentFX
